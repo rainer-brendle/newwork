@@ -24,4 +24,6 @@ we use mustache/handlebar to define the nodes in the distributed landscape of a 
 The yellow pages implementation then acts at minimum as a "control plane" for the cluster, 
 but it can also be a schema inside a distributed cluster of PostgreSQL instances.
 
-The basic goal is define a causal map between logical objects ("actors" ) and their timey relations - similiar as with a Vector Clock implementation.
+The basic goal is define a causal map between logical objects ("actors" ) and their timey relations of versions - similiar as with a Vector Clock implementation.
+
+Versions are defined by CREATTE, INSERT NEW VERSION and CANCEL operations on the object instances, which belong to the same "Actor".
