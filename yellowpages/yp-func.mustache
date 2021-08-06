@@ -4,6 +4,11 @@ RETURNS text AS
 $$
  SELECT CONCAT( $1, '-', nextval( $1 ), '-', $2 );
 $$
-LANGUAGE SQL
+LANGUAGE SQL;
 
-
+CREATE OR REPLACE FUNCTION RESERVE( actor TEXT, partition TEXT, actor_object TEXT, action )
+RETURNS text AS
+$$
+-- needs to be filled
+$$
+LANGUAGE SQL;
