@@ -6,7 +6,7 @@ $$
 $$
 LANGUAGE SQL;
 
-CREATE OR REPLACE FUNCTION RESERVE( actor TEXT, partition TEXT, actor_object TEXT, action )
+CREATE OR REPLACE FUNCTION RESERVE_FOR( actor TEXT, partition TEXT, actor_object TEXT, action TEXT )
 RETURNS text AS
 $$
 -- needs to be filled
