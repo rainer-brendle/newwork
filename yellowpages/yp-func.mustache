@@ -1,0 +1,9 @@
+
+CREATE OR REPLACE FUNCTION NEWID ( actor TEXT, partition TEXT )
+RETURNS text AS
+$$
+ SELECT CONCAT( $1, '-', nextval( $1 ), '-', $2 );
+$$
+LANGUAGE SQL
+
+

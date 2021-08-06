@@ -1,0 +1,18 @@
+
+{ "YellowPages" : 
+   {
+       
+       "LVLN-0001": {
+       "partitionInfo": {
+       "actor" : "DVLN"
+       }
+      },
+      
+     "WORK-0001" : {
+       "partitionInfo": {
+       "actor" : "WORK"
+       }
+      }
+   }
+}
+
