@@ -4,15 +4,23 @@
        "name" : "DLVN-0001",
        "partitionInfo": {
        "actor" : "DVLN",
-       "partition" : "0001"
+       "partition" : "0001",
+       "database"" : "0001"
        }
       },
        {
        "name" : "WORK-0001",
        "partitionInfo": {
        "actor" : "WORK",
-       "partition" : "0001"
+       "partition" : "0001",
+       "database"" : "0001"
        }
       }
    ]
+}
+
+{ "Databases" : 
+    [
+       "name" : :"0001"
+    ]
 }
