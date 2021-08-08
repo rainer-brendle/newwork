@@ -1,0 +1,1 @@
+mustache -p yp-seq.mustache -p yp-func.mustache yp.json yp.mustache
