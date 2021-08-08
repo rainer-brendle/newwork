@@ -13,7 +13,7 @@
        "partitionInfo": {
        "actor" : "WORK",
        "partition" : "0001",
-       "database"" : "0001"
+       "database"  : "0001"
        }
       }
    ]
