@@ -32,3 +32,9 @@ The environment needs to generate a list of database instances and or schemata, 
 
 This needs to include applicatioon servers, which act basically as proxy servers connecting to the databases and Kafka topics all together in a consistent landscape picture. This is very close to 
 Teraform, but with a very string focus on providing a product landscape (in a Kubernetes cluster).
+
+Rational: 
+we need to have a bootstrap anvironment, where we can edit a basic landscape manually using JSON. This cannot be the final environment. In the end the production of a 
+cloud landscape has a lot of similarities then of the production of material goods. But we need a base idea of a cloud landscape, before we go produce a 
+general material management environment. In the end a material catalog and the description of the container instances in a lean-development cloud are very similar. In the end we want to develop the landscape  also 
+to have a more general concept.
