@@ -1,17 +1,25 @@
-{ "actors" : 
+{ "actors" :
    [
-         {
-           "id" : "DLVN-0001",
-           "actorType" : "DVLN",
-           "partition" : "01-0001",
-           "container" : "PG-0001-0001"
-         }
-      ,
-         {
-           "id" : "WORK-0001",
-           "actorType" : "WORK",
-           "partition" : "01-0001",
-           "container" : "PG-0001-0001"
-         }
+     { 
+       "ID" : "DLVN" ,
+       "description" : "Delivery Note",
+       "node1" :
+       {
+          "ID" : "DLVN-01-0001", 
+          "partition" : "01-0001", 
+          "container" : "PG-0001-0001"
+       }
+     }
+     ,
+     {
+       "ID" : "WORD" ,
+       "description" : "Work Order",
+       "node1" :
+       {
+          "ID" : "WORD-01-0001" ,
+          "partition" : "01-0001", 
+          "container" : "PG-0001-0001"
+       }
+     }
    ]
-}
+} 
