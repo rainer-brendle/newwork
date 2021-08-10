@@ -1,20 +1,17 @@
-{ "YellowPages" : 
+{ "actors" : 
    [
-       {
-       "name" : "DLVN-0001",
-       "partitionInfo": {
-       "actor" : "DVLN",
-       "partition" : "01-0001",
-       "container" : "PG-0001-0001"
-       }
-      },
-       {
-       "name" : "WORK-0001",
-       "partitionInfo": {
-       "actor" : "WORK",
-       "partition" : "01-0001",
-       "container"  : "PG-0001-0001"
-       }
-      }
+         {
+           "id" : "DLVN-0001",
+           "actorType" : "DVLN",
+           "partition" : "01-0001",
+           "container" : "PG-0001-0001"
+         }
+      ,
+         {
+           "id" : "WORK-0001",
+           "actorType" : "WORK",
+           "partition" : "01-0001",
+           "container" : "PG-0001-0001"
+         }
    ]
 }

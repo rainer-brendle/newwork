@@ -1,8 +1,10 @@
 { "Containers" : 
    [
-       {
-       "id" : "PG-001-0001",
-       }
+       { "container" :
+           {
+              "id!" : "PG-001-0001",
+              "containerType" : "PG-001"
+           }
       }
    ]
 }
