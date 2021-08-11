@@ -1,0 +1,15 @@
+Export function.
+
+We need a function, which allows collecting the information build up in a workflow, consolidate this (that is adding up CRUD operations), 
+add key mapping if needed and produce a Kafka message, which is representign the outcome of a workflow as a whole, basically a closing document - to be send to a Kafka topic, which represents a logical "actor".
+
+A logical actor is typically a business document, which describes an achieved task and which is final. This in most cases is a "busines record" ("Beleg") or actually any result, 
+which was achieved as a whole. 
+
+So basically we have two similar data structures, one is the collection of intends in a workflow, the other one is the (immutable) record of the result. 
+
+We can do this best by assuming that this function is a template function, where the data structures A1, A2, A3 ...  of a single row translates into a collection 
+of tablestable with a given key range (the key is the key of the actor!). Examples are orders, delivery notes, but also processes around master data like materials, 
+products, catalogs of materials or products, but also of plans about doing something (like a sales plan or a production plan etc.).
+
+TEchnically this is a process, which we may want to call "Sense Making" - just to give it a context. 
