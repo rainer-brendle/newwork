@@ -1,4 +1,4 @@
-Export function.
+(Workflow) Export Function.
 
 We need a function, which allows collecting the information build up in a workflow, consolidate this (that is adding up CRUD operations), 
 add key mapping if needed and produce a Kafka message, which is representign the outcome of a workflow as a whole, basically a closing document - to be send to a Kafka topic, which represents a logical "actor".
@@ -12,4 +12,20 @@ We can do this best by assuming that this function is a template function, where
 of tablestable with a given key range (the key is the key of the actor!). Examples are orders, delivery notes, but also processes around master data like materials, 
 products, catalogs of materials or products, but also of plans about doing something (like a sales plan or a production plan etc.).
 
-TEchnically this is a process, which we may want to call "Sense Making" - just to give it a context. 
+Technically this is a process, which we may want to call "Sense Making" - just to give it a context. 
+
+We will need for doing so a JSON-based description of a datastructure, very much like Avro would do it regarding Kafka messages. 
+(we can always map that back and furth to an XML-based description, but that a JSON- and Javascript-based description is much more powerful - simply also, 
+becasue we will need a mixin based datamodel eventually and Javascript - due to it origin from Lisp - has a build-in mixin concept already. 
+
+Since most of it basically again about schema creation, we will start using the Javascript-library "moustache" as the basis, just to give us a quick start. 
+
+The workflow export function then needs to run thru a datastructure and copy it attribute by attribute into a Kafka message and vice versa and slo do some 
+key transalattion to make the messages distributable (no GUIDs as primary keys, but semantic primary keys based on a defintion of "Actors" 
+(see the Actors project).
+
+The template function is basically defined by 
+
+export( actor key, <row structure>s, Kafka message)
+
+.
