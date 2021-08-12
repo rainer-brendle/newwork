@@ -21,7 +21,7 @@ becasue we will need a mixin based datamodel eventually and Javascript - due to 
 Since most of it basically again about schema creation, we will start using the Javascript-library "moustache" as the basis, just to give us a quick start. 
 
 The workflow export function then needs to run thru a datastructure and copy it attribute by attribute into a Kafka message and vice versa and slo do some 
-key transalattion to make the messages distributable (no GUIDs as primary keys, but semantic primary keys based on a defintion of "Actors" 
+key transalattion to make the messages distributable (no GUIDs as primary keys, but semantic primary keys based on a definition of "Actors" 
 (see the Actors project).
 
 The template function is basically defined by 
