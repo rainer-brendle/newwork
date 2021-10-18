@@ -2,21 +2,28 @@ Yellow Pages
 
 Creating a distributed landscape description of objects, which can be part in a Kafka environment. 
 
-The goal is to manage logical objects in one common place with in a cluster in a cload with a process calculus background. 
+The goal is to manage logical objects in one common place within a cluster in a cload with a process calculus background. 
 We basically follow the Actor model and define objects as logical, business defined "actors" in business processes. 
 An actor on that level is an order, a delivery note, a bill-of-material or others.
 
-This should limit the amount of Kafka topics in a distributed landscape to not a so big number even for a whole company, 
-but shoudl also allow to have read access via HTTP to the same objects via TCP/IP.
+THe goal is to limit limit the amount of Kafka topics in a distributed landscape to not a so big number even for a whole company, 
+but should also allow to have read access via HTTP to the same objects via TCP/IP. By this we also define and limit the amount of message queues and recipients.
+
+Since then we have a limited amount of queues, we also have a defined statial coordinate system in the cloud. It allows defining more than just the logical classes
+of the available objects, but also defining a statial and a timely coordinate system of the instances of the objects, but of the object identities, but also of their 
+timely order.t
 
 THe assumption is that we can define a spatial and timely oordinate system for objects by doing this. Here the actor name can define some kind of a 
 spatial coordinate (since every actor at a given point in time needs to have one valid master location. 
 This instance acts as the transactional master. 
 
 On the other side this object then can also manage a version number as a timely coordinate on itself. 
-Taking this together we can reach a Vecor Time representatation of objects in a cloud. 
+Taking this together we can reach a Vector Time representatation of objects in a cloud. 
 
-So it is about yellow pages both in space and time.
+Vector Clock is a general way do manage a distributed time coordinate (it was invented mostly by Calin Fidge and Friedemann Mattern). It allows having a full
+spatial and timely map of all results.
+
+So it is about yellow pages of classes and objects organized both in space and time.
 
 Since we will need for every actor two sequence numbers to be genrated into a landscape of a cluster,
 we use mustache/handlebar to define the nodes in the distributed landscape of a clster postgreSQL instances (or actually other distributed database clusters.
