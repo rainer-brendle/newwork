@@ -45,3 +45,8 @@ we need to have a bootstrap anvironment, where we can edit a basic landscape man
 cloud landscape has a lot of similarities then of the production of material goods. But we need a base idea of a cloud landscape, before we go produce a 
 general material management environment. In the end a material catalog and the description of the container instances in a lean-development cloud are very similar. In the end we want to develop the landscape  also 
 to have a more general concept.
+
+Similarities
+This is to some extend very similar to what IBM once had described as their ENQUEUE environment in CSIC and IMS, but this was at a time, where 
+multi-version storage was much too expensive.
+So it was not used not in an insert-only model - it was only used for locking of objects. SAP was using a reverse-engineered version of this in their R/3 product. 
