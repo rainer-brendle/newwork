@@ -1,0 +1,24 @@
+Kafka Configuration
+
+Kafka has many operational modes and we need to chose what fits best. 
+
+Assumptions for Newwork internal replication : both are for data replication and for distributed process control flow.
+
+We run Kafka in an at-least-once mode
+Kafka runs with at least 3 queues, one master and two slaves
+We use the Kafka partition only for failover defining an “epoche” for the event streams.
+We use the Kafka offset as the indicator, how far a recipient has read the queue
+We use the topic name as a representative of an “Actor”, which in the represents any business entity (order, purchasing order, work order, delivery node, payment, time sheet, goods movement), material, bill-of-material, material catalog, people catalog, supplier and customer catalog and more). 
+
+We use AVRO messages as a pay load, but we need to be open to change or extend the payload format, so we need to add a Newwork define message header to a Kafka message, which needs to include the payoad format and a Newwork protocol version , such that we have a chance to improve. 
+
+We need to generate Kafka-related recipient data structures for this to define message structure. For doing this we need a meta model and a template engine to generate the schema. 
+
+This however depends on the target platform, which basically is - from a language perspective: Javascript, Python or Scala and for the database may be a cluster of PostgreQL insert-only nodes (very much like AWS Redshift), a MariaDB Cluster on top of Kafka or. a Data Bricks cluster - and they all work slightly differently, The template engines, which fits best to Javascript is Moustache or HandleBar (which is an extension of Mustache), for Python it is Nidja and for Scala it is Play, which unfortunately has a very different approach then the other two and a very different syntax. 
+
+We need to start somewhere , so we pick Mustache - just because it is simple and comes as a command line tool with a node.js installation. It can be deployed simply by npm. The node.js installer. 
+
+The Actor definition is defined via a DSL using Mustache and needs to define the Yellow Pages content, which should be the control plane of a Newwork cloud. It only is a directory and needs to work either with etcd in Kubernetes or Zookeeper in Kafka. (I am guessing that Kafka will move to ebcd, but that’s guess, we may need to support both. Havingjust a JSON file may give the best flexibility yet, 
+
+The sending and receiving data structures for a database instances are defined again using Mustache, but is now for the data plane of a PostgreSQL-cluster. Chosing Data Bricks or a Maria DB would then need to adopt the code snippets, but not the meta model.
+
