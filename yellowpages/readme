@@ -2,38 +2,45 @@ YELLOW PAGES
 
 Creating a distributed landscape description of objects, which can be part in a Kafka environment. 
 
-The goal is to manage logical objects in one common place within a cluster in a cload with a process calculus background. 
-We basically follow the Actor model and define objects as logical, business defined "actors" in business processes. 
-An actor on that level is an order, a delivery note, a bill-of-material or others.
+The goal is to manage logical objects in one common place within a cluster in a cloud with a process calculus background. 
+We basically follow the old Actor model from MIT and define objects as logical, business defined "actors" in business processes. 
+An actor on that level is an order, a delivery note, a bill-of-material or others, but it can be anything. 
+It basically defines the smallest objecy class unit or serialization.
 
-THe goal is to limit limit the amount of Kafka topics in a distributed landscape to not a so big number even for a whole company, 
+The goal is to limit limit the amount of Kafka topics in a distributed landscape to not a so big number even for a whole company, 
 but should also allow to have read access via HTTP to the same objects via TCP/IP. By this we also define and limit the amount of message queues and recipients.
+We ex[ect - just from a busines perspective - Actors are grouped via organizational units and chose a terminology from accounting - the "company code". From a 
+common law perspective it means the smallest organizational legal unit in a company representign a department usually. We have a hierachy of a tenant (representing the board of directors) 
+and a company code representing a department.  
 
-Since then we have a limited amount of queues, we also have a defined statial coordinate system in the cloud. It allows defining more than just the logical classes
-of the available objects, but also defining a statial and a timely coordinate system of the instances of the objects, but of the object identities, but also of their 
-timely order.t
+Since then we have a limited amount of queues, we also have a defined spacial coordinate system in the cloud via actors/ It allows defining more than just 
+the logical classes of the available objects, but also defining a spacial and a timely coordinate system of the instances of the objects, but of the object 
+identities, but also of their 
+timely order.
 
-THe assumption is that we can define a spatial and timely oordinate system for objects by doing this. Here the actor name can define some kind of a 
+The assumption is that we can define a spatial and timely oordinate system for objects by doing this. Here the actor name can define some kind of a 
 spatial coordinate (since every actor at a given point in time needs to have one valid master location. 
-This instance acts as the transactional master. 
+This instance then acts as the transactional master at a given point in time.
 
-On the other side this object then can also manage a version number as a timely coordinate on itself. 
-Taking this together we can reach a Vector Time representatation of objects in a cloud. 
+On the other side this object then can also manages a version number as a timely coordinate on itself. 
+Taking this together we can reach a Vector Clock representatation of objects in a cloud. 
 
 Vector Clock is a general way do manage a distributed time coordinate (it was invented mostly by Calin Fidge and Friedemann Mattern). It allows having a full
-spatial and timely map of all results.
+spatial and timely map of all results includign causality.
 
-So it is about yellow pages of classes and objects organized both in space and time.
+So Yellow Pages  is about defining a directory of classes and objects organized both in space and time.
 
 Since we will need for every actor two sequence numbers to be genrated into a landscape of a cluster,
-we use mustache/handlebar to define the nodes in the distributed landscape of a clster postgreSQL instances (or actually other distributed database clusters.
+we use mustache/handlebar to define the nodes in the distributed landscape of a clster postgreSQL instances (or actually other distributed database clusters).
 
 The yellow pages implementation then acts at minimum as a "control plane" for the cluster, 
 but it can also be a schema inside a distributed cluster of PostgreSQL instances.
 
 The basic goal is define a causal map between logical objects ("actors" ) and their timey relations of versions - similiar as with a Vector Clock implementation.
 
-Versions are defined by CREATTE, INSERT NEW VERSION and CANCEL operations on the object instances, which belong to the same "Actor".
+Versions are defined by CREATTE, INSERT NEW VERSION and CANCEL operations on the final object instances, which belong to the same "Actor". On the other side we also have prelimanry 
+workflow objects, which can also be defined by Actors as goals for workflow endpoints, but since they go into the future. they still have no valid time coordinate, 
+but can be defined via GUIDs. 
 
 The environment needs to generate a list of database instances and or schemata, but also of fail-over instances with predined replication schemes.
 
@@ -50,3 +57,4 @@ Similarities
 This is to some extend very similar to what IBM once had described as their ENQUEUE environment in CSIC and IMS, but this was at a time, where 
 multi-version storage was much too expensive.
 So it was not used not in an insert-only model - it was only used for locking of objects. SAP was using a reverse-engineered version of this in their R/3 product. 
+On the other side, the control plane which we define here is similar to Teraform, but with a much stronger business focus.
